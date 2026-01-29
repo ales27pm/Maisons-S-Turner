@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { insertContactMessageSchema, projects, services, contactMessages } from './schema';
 
+export { insertContactMessageSchema };
+export type { InsertContactMessage } from './schema';
+
 export const api = {
   projects: {
     list: {
