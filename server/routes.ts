@@ -7,7 +7,7 @@ import { insertContactMessageSchema } from "@shared/schema";
 
 export async function registerRoutes(
   httpServer: Server,
-  app: Express
+  app: Express,
 ): Promise<Server> {
   // Projects
   app.get(api.projects.list.path, async (req, res) => {
@@ -32,9 +32,9 @@ export async function registerRoutes(
   // Contact
   app.post(api.contact.submit.path, async (req, res) => {
     try {
-      const input = insertContactMessageSchema.parse(req.body);
-      const message = await storage.createContactMessage(input);
-      res.json(message);
+      const input = insertContactMessageSchema.strict().parse(req.body);
+      const savedMessage = await storage.createContactMessage(input);
+      res.json(savedMessage);
     } catch (err) {
       if (err instanceof z.ZodError) {
         return res.status(400).json({ message: "Invalid input" });
@@ -56,41 +56,49 @@ async function seedDatabase() {
   await storage.createService({
     title: "General Contracting",
     description: "Full-service project management from concept to completion.",
-    icon: "Hammer"
+    icon: "Hammer",
   });
   await storage.createService({
     title: "Renovations",
-    description: "Transforming existing spaces into modern, functional environments.",
-    icon: "Home"
+    description:
+      "Transforming existing spaces into modern, functional environments.",
+    icon: "Home",
   });
   await storage.createService({
     title: "Custom Homes",
-    description: "Building bespoke homes tailored to your lifestyle and vision.",
-    icon: "Ruler"
+    description:
+      "Building bespoke homes tailored to your lifestyle and vision.",
+    icon: "Ruler",
   });
 
   await storage.createProject({
     title: "Modern Kitchen Remodel",
-    description: "Complete renovation of a dated kitchen into a modern chef's paradise with custom cabinetry and quartz countertops.",
-    imageUrl: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&q=80&w=2768&ixlib=rb-4.0.3",
+    description:
+      "Complete renovation of a dated kitchen into a modern chef's paradise with custom cabinetry and quartz countertops.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&q=80&w=2768&ixlib=rb-4.0.3",
     category: "Renovation",
     location: "Downtown",
-    completionDate: "2023"
+    completionDate: "2023",
   });
   await storage.createProject({
     title: "Lakeside Custom Home",
-    description: "Design and build of a 3,500 sq ft luxury home with panoramic lake views and sustainable features.",
-    imageUrl: "https://images.unsplash.com/photo-1600596542815-e32c530480b7?auto=format&fit=crop&q=80&w=2600&ixlib=rb-4.0.3",
+    description:
+      "Design and build of a 3,500 sq ft luxury home with panoramic lake views and sustainable features.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1600596542815-e32c530480b7?auto=format&fit=crop&q=80&w=2600&ixlib=rb-4.0.3",
     category: "New Build",
     location: "Lakeview",
-    completionDate: "2024"
+    completionDate: "2024",
   });
   await storage.createProject({
     title: "Heritage Restoration",
-    description: "Careful restoration of a century-old property, preserving original details while updating systems.",
-    imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2600&ixlib=rb-4.0.3",
+    description:
+      "Careful restoration of a century-old property, preserving original details while updating systems.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2600&ixlib=rb-4.0.3",
     category: "Restoration",
     location: "Old Town",
-    completionDate: "2023"
+    completionDate: "2023",
   });
 }

@@ -2,10 +2,27 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactMessageSchema, type InsertContactMessage } from "@shared/routes";
+import {
+  insertContactMessageSchema,
+  type InsertContactMessage,
+} from "@shared/routes";
 import { useContactForm } from "@/hooks/use-content";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -13,13 +30,15 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   const mutation = useContactForm();
-  
+
   const form = useForm<InsertContactMessage>({
     resolver: zodResolver(insertContactMessageSchema),
     defaultValues: {
       name: "",
       email: "",
       phone: "",
+      budget: "",
+      region: "",
       message: "",
     },
   });
@@ -35,13 +54,16 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <Navigation />
-      
+
       {/* Header */}
       <div className="bg-primary text-white pt-32 pb-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            Contactez‑nous
+          </h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-lg">
-            Let's discuss your project. We're here to answer any questions you may have.
+            Discutons de votre projet. Nous sommes là pour répondre à toutes vos
+            questions.
           </p>
         </div>
       </div>
@@ -49,23 +71,29 @@ export default function Contact() {
       <main className="flex-grow container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-display text-3xl font-bold text-primary mb-8">Get In Touch</h2>
-            
+            <h2 className="font-display text-3xl font-bold text-primary mb-8">
+              Restons en contact
+            </h2>
+
             <div className="space-y-8 mb-12">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-primary mb-1">Our Office</h3>
+                  <h3 className="font-bold text-lg text-primary mb-1">
+                    Notre bureau
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    123 Construction Blvd<br />
-                    Montreal, QC H2X 3Y7<br />
+                    123 Construction Blvd
+                    <br />
+                    Montreal, QC H2X 3Y7
+                    <br />
                     Canada
                   </p>
                 </div>
@@ -76,10 +104,14 @@ export default function Contact() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-primary mb-1">Phone</h3>
+                  <h3 className="font-bold text-lg text-primary mb-1">
+                    Téléphone
+                  </h3>
                   <p className="text-muted-foreground">
-                    <span className="block mb-1">Main: (514) 555-0123</span>
-                    <span className="block">Fax: (514) 555-0124</span>
+                    <span className="block mb-1">
+                      Principal : (514) 555-0123
+                    </span>
+                    <span className="block">Télécopieur : (514) 555-0124</span>
                   </p>
                 </div>
               </div>
@@ -89,10 +121,10 @@ export default function Contact() {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-primary mb-1">Email</h3>
-                  <p className="text-muted-foreground">
-                    info@maisonsturner.ca
-                  </p>
+                  <h3 className="font-bold text-lg text-primary mb-1">
+                    Courriel
+                  </h3>
+                  <p className="text-muted-foreground">info@maisonsturner.ca</p>
                 </div>
               </div>
 
@@ -101,10 +133,13 @@ export default function Contact() {
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-primary mb-1">Business Hours</h3>
+                  <h3 className="font-bold text-lg text-primary mb-1">
+                    Heures d’ouverture
+                  </h3>
                   <p className="text-muted-foreground">
-                    Mon - Fri: 8:00 AM - 5:00 PM<br />
-                    Sat - Sun: Closed
+                    Lun - Ven : 8 h 00 - 17 h 00
+                    <br />
+                    Sam - Dim : Fermé
                   </p>
                 </div>
               </div>
@@ -112,25 +147,34 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-100"
           >
-            <h2 className="font-display text-2xl font-bold text-primary mb-6">Send Us a Message</h2>
-            
+            <h2 className="font-display text-2xl font-bold text-primary mb-6">
+              Envoyez-nous un message
+            </h2>
+
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel>Nom</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} className="h-12 bg-slate-50 border-slate-200 focus:border-accent" />
+                          <Input
+                            placeholder="Jean Dupont"
+                            {...field}
+                            className="h-12 bg-slate-50 border-slate-200 focus:border-accent"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -141,9 +185,14 @@ export default function Contact() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone</FormLabel>
+                        <FormLabel>Téléphone</FormLabel>
                         <FormControl>
-                          <Input placeholder="(514) 555-0000" {...field} value={field.value || ""} className="h-12 bg-slate-50 border-slate-200 focus:border-accent" />
+                          <Input
+                            placeholder="(514) 555-0000"
+                            {...field}
+                            value={field.value || ""}
+                            className="h-12 bg-slate-50 border-slate-200 focus:border-accent"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -156,10 +205,150 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>Courriel</FormLabel>
                       <FormControl>
-                        <Input placeholder="john@example.com" type="email" {...field} className="h-12 bg-slate-50 border-slate-200 focus:border-accent" />
+                        <Input
+                          placeholder="jean@example.com"
+                          type="email"
+                          {...field}
+                          className="h-12 bg-slate-50 border-slate-200 focus:border-accent"
+                        />
                       </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="typeDemande"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Type de demande</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
+                              <SelectValue placeholder="Sélectionnez une option" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="info-modeles">
+                              Informations sur les modèles
+                            </SelectItem>
+                            <SelectItem value="demande-prix">
+                              Demande de prix
+                            </SelectItem>
+                            <SelectItem value="service-apres-vente">
+                              Service après‑vente
+                            </SelectItem>
+                            <SelectItem value="autre">Autre</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="typeMaison"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Type de maison</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
+                              <SelectValue placeholder="Sélectionnez une option" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="maison-modulaire">
+                              Maison modulaire
+                            </SelectItem>
+                            <SelectItem value="maison-jumelee">
+                              Maison jumelée
+                            </SelectItem>
+                            <SelectItem value="chalet">Chalet</SelectItem>
+                            <SelectItem value="mini-maison">
+                              Mini‑maison
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="budget"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Budget</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Ex. 300 000 $"
+                            {...field}
+                            value={field.value || ""}
+                            className="h-12 bg-slate-50 border-slate-200 focus:border-accent"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="region"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Région</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Ex. Montérégie"
+                            {...field}
+                            value={field.value || ""}
+                            className="h-12 bg-slate-50 border-slate-200 focus:border-accent"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="echeancier"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Échéancier</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
+                            <SelectValue placeholder="Sélectionnez une période" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="0-3">0–3 mois</SelectItem>
+                          <SelectItem value="3-6">3–6 mois</SelectItem>
+                          <SelectItem value="6-12">6–12 mois</SelectItem>
+                          <SelectItem value="12-plus">
+                            12 mois et plus
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -172,10 +361,10 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Tell us about your project..." 
-                          className="min-h-[150px] resize-none bg-slate-50 border-slate-200 focus:border-accent" 
-                          {...field} 
+                        <Textarea
+                          placeholder="Parlez-nous de votre projet..."
+                          className="min-h-[150px] resize-none bg-slate-50 border-slate-200 focus:border-accent"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -183,12 +372,12 @@ export default function Contact() {
                   )}
                 />
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full h-12 text-lg bg-accent hover:bg-accent/90 text-white shadow-lg"
                   disabled={mutation.isPending}
                 >
-                  {mutation.isPending ? "Sending..." : "Send Message"}
+                  {mutation.isPending ? "Envoi..." : "Envoyer"}
                 </Button>
               </form>
             </Form>
