@@ -1,6 +1,7 @@
 import { z } from "zod";
 import {
   insertContactMessageSchema,
+  insertRendezVousRequestInputSchema,
   insertRendezVousRequestSchema,
   projects,
   services,
@@ -8,8 +9,16 @@ import {
   rendezVousRequests,
 } from "./schema";
 
-export { insertContactMessageSchema, insertRendezVousRequestSchema };
-export type { InsertContactMessage, InsertRendezVousRequest } from "./schema";
+export {
+  insertContactMessageSchema,
+  insertRendezVousRequestInputSchema,
+  insertRendezVousRequestSchema,
+};
+export type {
+  InsertContactMessage,
+  InsertRendezVousRequest,
+  InsertRendezVousRequestInput,
+} from "./schema";
 
 export const api = {
   projects: {

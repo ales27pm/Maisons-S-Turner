@@ -2,7 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import {
   api,
   type InsertContactMessage,
-  type InsertRendezVousRequest,
+  type InsertRendezVousRequestInput,
 } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 
@@ -83,7 +83,7 @@ export function useRendezVousForm() {
   const { toast } = useToast();
 
   return useMutation({
-    mutationFn: async (data: InsertRendezVousRequest) => {
+    mutationFn: async (data: InsertRendezVousRequestInput) => {
       const validated = api.rendezVous.submit.input.parse(data);
       const res = await fetch(api.rendezVous.submit.path, {
         method: api.rendezVous.submit.method,

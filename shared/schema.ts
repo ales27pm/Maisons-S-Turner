@@ -38,7 +38,7 @@ export const rendezVousRequests = pgTable("rendez_vous_requests", {
   name: text("name").notNull(),
   phone: text("phone").notNull(),
   email: text("email").notNull(),
-  requestedAt: text("requested_at").notNull(),
+  requestedAt: timestamp("requested_at").notNull(),
   appointmentType: text("appointment_type").notNull(),
   message: text("message"),
   createdAt: timestamp("created_at").defaultNow(),
@@ -74,13 +74,27 @@ export const insertRendezVousRequestSchema = createInsertSchema(
     name: z.string().min(1, "Le nom est requis."),
     phone: z.string().min(1, "Le téléphone est requis."),
     email: z.string().email("Le courriel doit être valide."),
-    requestedAt: z.string().min(1, "La date et l'heure sont requises."),
+    requestedAt: z.coerce.date({
+      required_error: "La date et l'heure sont requises.",
+      invalid_type_error: "La date et l'heure doivent être valides.",
+    }),
     appointmentType: z.enum(["telephone", "virtuel", "en-personne"], {
       required_error: "Le type de rendez-vous est requis.",
     }),
     message: z.string().optional(),
   },
 ).omit({ id: true, createdAt: true });
+
+export const insertRendezVousRequestInputSchema =
+  insertRendezVousRequestSchema.extend({
+    requestedAt: z
+      .string()
+      .min(1, "La date et l'heure sont requises.")
+      .refine(
+        (value) => !Number.isNaN(Date.parse(value)),
+        "La date et l'heure doivent être valides.",
+      ),
+  });
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
@@ -91,4 +105,7 @@ export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
 export type RendezVousRequest = typeof rendezVousRequests.$inferSelect;
 export type InsertRendezVousRequest = z.infer<
   typeof insertRendezVousRequestSchema
+>;
+export type InsertRendezVousRequestInput = z.infer<
+  typeof insertRendezVousRequestInputSchema
 >;

@@ -3,8 +3,8 @@ import { Footer } from "@/components/Footer";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  insertRendezVousRequestSchema,
-  type InsertRendezVousRequest,
+  insertRendezVousRequestInputSchema,
+  type InsertRendezVousRequestInput,
 } from "@shared/routes";
 import { useRendezVousForm } from "@/hooks/use-content";
 import {
@@ -31,8 +31,8 @@ import { motion } from "framer-motion";
 export default function RendezVous() {
   const mutation = useRendezVousForm();
 
-  const form = useForm<InsertRendezVousRequest>({
-    resolver: zodResolver(insertRendezVousRequestSchema),
+  const form = useForm<InsertRendezVousRequestInput>({
+    resolver: zodResolver(insertRendezVousRequestInputSchema),
     defaultValues: {
       name: "",
       phone: "",
@@ -43,7 +43,7 @@ export default function RendezVous() {
     },
   });
 
-  const onSubmit = (data: InsertRendezVousRequest) => {
+  const onSubmit = (data: InsertRendezVousRequestInput) => {
     mutation.mutate(data, {
       onSuccess: () => {
         form.reset({
@@ -227,7 +227,7 @@ export default function RendezVous() {
                       <FormLabel>Type de rendez-vous</FormLabel>
                       <Select
                         onValueChange={field.onChange}
-                        defaultValue={field.value}
+                        value={field.value}
                       >
                         <FormControl>
                           <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
