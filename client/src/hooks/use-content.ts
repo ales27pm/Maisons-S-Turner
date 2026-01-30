@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { api, type InsertContactMessage } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 

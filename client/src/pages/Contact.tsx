@@ -37,11 +37,8 @@ export default function Contact() {
       name: "",
       email: "",
       phone: "",
-      typeDemande: "",
-      typeMaison: "",
       budget: "",
       region: "",
-      echeancier: "",
       message: "",
     },
   });
@@ -231,7 +228,7 @@ export default function Contact() {
                         <FormLabel>Type de demande</FormLabel>
                         <Select
                           onValueChange={field.onChange}
-                          value={field.value || undefined}
+                          value={field.value}
                         >
                           <FormControl>
                             <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
@@ -239,16 +236,16 @@ export default function Contact() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Informations sur les modèles">
+                            <SelectItem value="info-modeles">
                               Informations sur les modèles
                             </SelectItem>
-                            <SelectItem value="Demande de prix">
+                            <SelectItem value="demande-prix">
                               Demande de prix
                             </SelectItem>
-                            <SelectItem value="Service après‑vente">
+                            <SelectItem value="service-apres-vente">
                               Service après‑vente
                             </SelectItem>
-                            <SelectItem value="Autre">Autre</SelectItem>
+                            <SelectItem value="autre">Autre</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -263,7 +260,7 @@ export default function Contact() {
                         <FormLabel>Type de maison</FormLabel>
                         <Select
                           onValueChange={field.onChange}
-                          value={field.value || undefined}
+                          value={field.value}
                         >
                           <FormControl>
                             <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
@@ -271,14 +268,14 @@ export default function Contact() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Maison modulaire">
+                            <SelectItem value="maison-modulaire">
                               Maison modulaire
                             </SelectItem>
-                            <SelectItem value="Maison jumelée">
+                            <SelectItem value="maison-jumelee">
                               Maison jumelée
                             </SelectItem>
-                            <SelectItem value="Chalet">Chalet</SelectItem>
-                            <SelectItem value="Mini‑maison">
+                            <SelectItem value="chalet">Chalet</SelectItem>
+                            <SelectItem value="mini-maison">
                               Mini‑maison
                             </SelectItem>
                           </SelectContent>
@@ -336,7 +333,7 @@ export default function Contact() {
                       <FormLabel>Échéancier</FormLabel>
                       <Select
                         onValueChange={field.onChange}
-                        value={field.value || undefined}
+                        value={field.value}
                       >
                         <FormControl>
                           <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:border-accent">
@@ -344,10 +341,10 @@ export default function Contact() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="0–3 mois">0–3 mois</SelectItem>
-                          <SelectItem value="3–6 mois">3–6 mois</SelectItem>
-                          <SelectItem value="6–12 mois">6–12 mois</SelectItem>
-                          <SelectItem value="12 mois et plus">
+                          <SelectItem value="0-3">0–3 mois</SelectItem>
+                          <SelectItem value="3-6">3–6 mois</SelectItem>
+                          <SelectItem value="6-12">6–12 mois</SelectItem>
+                          <SelectItem value="12-plus">
                             12 mois et plus
                           </SelectItem>
                         </SelectContent>

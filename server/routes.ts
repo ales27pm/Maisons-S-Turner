@@ -32,28 +32,8 @@ export async function registerRoutes(
   // Contact
   app.post(api.contact.submit.path, async (req, res) => {
     try {
-      const {
-        name,
-        email,
-        phone,
-        typeDemande,
-        typeMaison,
-        budget,
-        region,
-        echeancier,
-        message,
-      } = insertContactMessageSchema.parse(req.body);
-      const savedMessage = await storage.createContactMessage({
-        name,
-        email,
-        phone,
-        typeDemande,
-        typeMaison,
-        budget,
-        region,
-        echeancier,
-        message,
-      });
+      const input = insertContactMessageSchema.strict().parse(req.body);
+      const savedMessage = await storage.createContactMessage(input);
       res.json(savedMessage);
     } catch (err) {
       if (err instanceof z.ZodError) {

@@ -39,9 +39,23 @@ export const insertProjectSchema = createInsertSchema(projects).omit({
 export const insertServiceSchema = createInsertSchema(services).omit({
   id: true,
 });
-export const insertContactMessageSchema = createInsertSchema(
-  contactMessages,
-).omit({ id: true, createdAt: true });
+export const insertContactMessageSchema = createInsertSchema(contactMessages, {
+  typeDemande: z.enum([
+    "info-modeles",
+    "demande-prix",
+    "service-apres-vente",
+    "autre",
+  ]),
+  typeMaison: z.enum([
+    "maison-modulaire",
+    "maison-jumelee",
+    "chalet",
+    "mini-maison",
+  ]),
+  budget: z.string().min(1, "Le budget est requis."),
+  region: z.string().min(1, "La région est requise."),
+  echeancier: z.enum(["0-3", "3-6", "6-12", "12-plus"]),
+}).omit({ id: true, createdAt: true });
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
