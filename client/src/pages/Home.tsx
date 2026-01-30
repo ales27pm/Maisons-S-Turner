@@ -30,6 +30,13 @@ const staggerContainer = {
   },
 };
 
+/**
+ * Render the site's home page, composing the hero, services preview, about/why section, recent projects, CTA, navigation, and footer into a single layout.
+ *
+ * Uses client-side hooks to fetch projects and services and provides UI fallbacks when data is absent.
+ *
+ * @returns The rendered React element for the site's home page.
+ */
 export default function Home() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
   const { data: services, isLoading: servicesLoading } = useServices();
