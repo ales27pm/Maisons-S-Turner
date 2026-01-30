@@ -31,7 +31,9 @@ export function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-md py-2"
+          : "bg-transparent py-4",
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,18 +41,24 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative h-12 w-12 overflow-hidden rounded-md shadow-lg border-2 border-primary/20 bg-white">
-              <img 
-                src="/images/logo-main.png" 
-                alt="Maisons S. Turner Logo" 
+              <img
+                src="/images/logo.svg"
+                alt="Maisons S. Turner Logo"
                 className="object-contain w-full h-full p-1 transition-transform duration-300 group-hover:scale-110"
               />
             </div>
-            <div className={cn(
-              "flex flex-col",
-              scrolled ? "text-primary" : "text-white drop-shadow-md"
-            )}>
-              <span className="font-display font-bold text-xl leading-none tracking-wide">MAISONS</span>
-              <span className="font-sans text-xs font-medium tracking-[0.2em] text-accent">S. TURNER</span>
+            <div
+              className={cn(
+                "flex flex-col",
+                scrolled ? "text-primary" : "text-white drop-shadow-md",
+              )}
+            >
+              <span className="font-display font-bold text-xl leading-none tracking-wide">
+                MAISONS
+              </span>
+              <span className="font-sans text-xs font-medium tracking-[0.2em] text-accent">
+                S. TURNER
+              </span>
             </div>
           </Link>
 
@@ -62,20 +70,24 @@ export function Navigation() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors duration-200 hover:text-accent relative group",
-                  location === link.href 
-                    ? "text-accent font-semibold" 
-                    : scrolled ? "text-slate-600" : "text-slate-100"
+                  location === link.href
+                    ? "text-accent font-semibold"
+                    : scrolled
+                      ? "text-slate-600"
+                      : "text-slate-100",
                 )}
               >
                 {link.label}
-                <span className={cn(
-                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full",
-                  location === link.href ? "w-full" : ""
-                )} />
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full",
+                    location === link.href ? "w-full" : "",
+                  )}
+                />
               </Link>
             ))}
             <Link href="/contact">
-              <Button 
+              <Button
                 size="sm"
                 className="bg-accent hover:bg-accent/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
               >
@@ -90,7 +102,9 @@ export function Navigation() {
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
               "md:hidden p-2 rounded-md transition-colors",
-              scrolled ? "text-primary hover:bg-slate-100" : "text-white hover:bg-white/10"
+              scrolled
+                ? "text-primary hover:bg-slate-100"
+                : "text-white hover:bg-white/10",
             )}
             aria-label="Toggle menu"
           >
@@ -115,9 +129,9 @@ export function Navigation() {
                   href={link.href}
                   className={cn(
                     "text-lg font-medium px-4 py-2 rounded-md transition-colors",
-                    location === link.href 
-                      ? "bg-accent/10 text-accent" 
-                      : "text-slate-600 hover:bg-slate-50 hover:text-primary"
+                    location === link.href
+                      ? "bg-accent/10 text-accent"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-primary",
                   )}
                   onClick={handleNavClick}
                 >

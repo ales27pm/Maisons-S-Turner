@@ -6,9 +6,9 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        lg: ".5625rem", /* 9px */
-        md: ".375rem", /* 6px */
-        sm: ".1875rem", /* 3px */
+        lg: ".5625rem" /* 9px */,
+        md: ".375rem" /* 6px */,
+        sm: ".1875rem" /* 3px */,
       },
       colors: {
         // Flat / base colors (regular buttons)
@@ -27,9 +27,9 @@ export default {
           border: "hsl(var(--popover-border) / <alpha-value>)",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
-          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
-          border: "var(--primary-border)",
+          DEFAULT: "#1e3a8a",
+          foreground: "#f8fafc",
+          border: "#162b64",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
@@ -37,14 +37,14 @@ export default {
           border: "var(--secondary-border)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
-          foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
-          border: "var(--muted-border)",
+          DEFAULT: "#e5e7eb",
+          foreground: "#6b7280",
+          border: "#d1d5db",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-          foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
-          border: "var(--accent-border)",
+          DEFAULT: "#ca8a04",
+          foreground: "#f8fafc",
+          border: "#a16207",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
@@ -73,7 +73,7 @@ export default {
         "sidebar-accent": {
           DEFAULT: "hsl(var(--sidebar-accent) / <alpha-value>)",
           foreground: "hsl(var(--sidebar-accent-foreground) / <alpha-value>)",
-          border: "var(--sidebar-accent-border)"
+          border: "var(--sidebar-accent-border)",
         },
         status: {
           online: "rgb(34 197 94)",
