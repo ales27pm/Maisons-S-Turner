@@ -27,9 +27,9 @@ export default {
           border: "hsl(var(--popover-border) / <alpha-value>)",
         },
         primary: {
-          DEFAULT: "#1e3a8a",
-          foreground: "#f8fafc",
-          border: "#162b64",
+          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
+          border: "hsl(var(--primary) / <alpha-value>)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
@@ -37,14 +37,14 @@ export default {
           border: "var(--secondary-border)",
         },
         muted: {
-          DEFAULT: "#e5e7eb",
-          foreground: "#6b7280",
-          border: "#d1d5db",
+          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
+          foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
+          border: "hsl(var(--muted) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "#ca8a04",
-          foreground: "#f8fafc",
-          border: "#a16207",
+          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+          foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
+          border: "hsl(var(--accent) / <alpha-value>)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
