@@ -26,10 +26,11 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Portfolio" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Accueil" },
+    { href: "/projects", label: "Réalisations" },
+    { href: "/services", label: "Nos services" },
+    { href: "/contact", label: "Nous joindre" },
+    { href: "/rendez-vous", label: "Rendez-vous" },
   ];
 
   const handleNavClick = () => setIsOpen(false);
@@ -93,13 +94,13 @@ export function Navigation() {
                 />
               </Link>
             ))}
-            <Link href="/contact">
+            <Link href="/rendez-vous">
               <Button
                 size="sm"
                 className="bg-accent hover:bg-accent/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                Get a Quote
+                Obtenir une soumission
               </Button>
             </Link>
           </div>
@@ -146,9 +147,9 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-2 border-t px-4">
-                <Link href="/contact" onClick={handleNavClick}>
+                <Link href="/rendez-vous" onClick={handleNavClick}>
                   <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-md">
-                    Request Consultation
+                    Prendre rendez-vous
                   </Button>
                 </Link>
               </div>
