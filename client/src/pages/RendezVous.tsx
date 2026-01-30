@@ -59,16 +59,12 @@ export default function RendezVous() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact">
-              <Button className="bg-accent hover:bg-accent/90 text-white">
-                Demander une soumission
-              </Button>
-            </Link>
-            <Link href="/services">
-              <Button variant="outline" className="border-slate-200">
-                Voir les services
-              </Button>
-            </Link>
+            <Button asChild className="bg-accent hover:bg-accent/90 text-white">
+              <Link href="/contact">Demander une soumission</Link>
+            </Button>
+            <Button asChild variant="outline" className="border-slate-200">
+              <Link href="/services">Voir les services</Link>
+            </Button>
           </div>
         </div>
       </main>
