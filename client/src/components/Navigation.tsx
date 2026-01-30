@@ -28,8 +28,8 @@ export function Navigation() {
   const navLinks = [
     { href: "/", label: "Accueil" },
     { href: "/projects", label: "Réalisations" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "/services", label: "Nos services" },
+    { href: "/contact", label: "Nous joindre" },
     { href: "/rendez-vous", label: "Rendez-vous" },
   ];
 
@@ -94,7 +94,7 @@ export function Navigation() {
                 />
               </Link>
             ))}
-            <Link href="/contact">
+            <Link href="/rendez-vous">
               <Button
                 size="sm"
                 className="bg-accent hover:bg-accent/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
@@ -147,7 +147,7 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-2 border-t px-4">
-                <Link href="/contact" onClick={handleNavClick}>
+                <Link href="/rendez-vous" onClick={handleNavClick}>
                   <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-md">
                     Prendre rendez-vous
                   </Button>

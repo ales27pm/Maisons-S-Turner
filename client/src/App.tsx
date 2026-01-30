@@ -18,6 +18,7 @@ function Router() {
         <Route path="/projects" component={Portfolio} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
+        <Route path="/rendez-vous" component={Contact} />
         <Route component={NotFound} />
       </Switch>
     </>
