@@ -8,6 +8,11 @@ import {
   Linkedin,
 } from "lucide-react";
 
+/**
+ * Renders the site footer containing brand information, quick navigation links, listed services, contact details, social icons, and legal links with a dynamic current year.
+ *
+ * @returns The footer JSX element including brand, quick links, services, contact info, social icons, and legal links.
+ */
 export function Footer() {
   const currentYear = new Date().getFullYear();
 

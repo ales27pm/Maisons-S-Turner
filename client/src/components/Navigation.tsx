@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+/**
+ * Top-level navigation bar with responsive desktop and mobile menus, scroll-aware styling, and active-link highlighting.
+ *
+ * Renders a brand/logo, desktop navigation links with an active state and underline, a CTA button, and a mobile menu that animates open/closed and closes when a navigation item is selected.
+ *
+ * @returns The JSX element representing the navigation bar component.
+ */
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
