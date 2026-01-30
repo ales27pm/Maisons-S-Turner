@@ -3,7 +3,10 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { insertContactMessageSchema } from "@shared/schema";
+import {
+  insertContactMessageSchema,
+  insertRendezVousRequestSchema,
+} from "@shared/schema";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -35,6 +38,20 @@ export async function registerRoutes(
       const input = insertContactMessageSchema.strict().parse(req.body);
       const savedMessage = await storage.createContactMessage(input);
       res.json(savedMessage);
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid input" });
+      }
+      throw err;
+    }
+  });
+
+  // Rendez-vous
+  app.post(api.rendezVous.submit.path, async (req, res) => {
+    try {
+      const input = insertRendezVousRequestSchema.strict().parse(req.body);
+      const savedRequest = await storage.createRendezVousRequest(input);
+      res.json(savedRequest);
     } catch (err) {
       if (err instanceof z.ZodError) {
         return res.status(400).json({ message: "Invalid input" });

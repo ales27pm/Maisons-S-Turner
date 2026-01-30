@@ -1,5 +1,9 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { api, type InsertContactMessage } from "@shared/routes";
+import {
+  api,
+  type InsertContactMessage,
+  type InsertRendezVousRequestInput,
+} from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 
 // ============================================
@@ -59,6 +63,48 @@ export function useContactForm() {
         title: "Message envoyé",
         description:
           "Merci pour votre message. Nous vous répondrons rapidement.",
+        variant: "default",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Erreur",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+}
+
+// ============================================
+// RENDEZ-VOUS
+// ============================================
+export function useRendezVousForm() {
+  const { toast } = useToast();
+
+  return useMutation({
+    mutationFn: async (data: InsertRendezVousRequestInput) => {
+      const validated = api.rendezVous.submit.input.parse(data);
+      const res = await fetch(api.rendezVous.submit.path, {
+        method: api.rendezVous.submit.method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validated),
+      });
+
+      if (!res.ok) {
+        if (res.status === 400) {
+          const error = await res.json();
+          throw new Error(error.message || "Invalid rendez-vous data");
+        }
+        throw new Error("Failed to send rendez-vous request");
+      }
+      return api.rendezVous.submit.responses[200].parse(await res.json());
+    },
+    onSuccess: () => {
+      toast({
+        title: "Demande envoyée",
+        description:
+          "Merci pour votre demande. Nous vous contacterons rapidement.",
         variant: "default",
       });
     },

@@ -1,13 +1,24 @@
 import { z } from "zod";
 import {
   insertContactMessageSchema,
+  insertRendezVousRequestInputSchema,
+  insertRendezVousRequestSchema,
   projects,
   services,
   contactMessages,
+  rendezVousRequests,
 } from "./schema";
 
-export { insertContactMessageSchema };
-export type { InsertContactMessage } from "./schema";
+export {
+  insertContactMessageSchema,
+  insertRendezVousRequestInputSchema,
+  insertRendezVousRequestSchema,
+};
+export type {
+  InsertContactMessage,
+  InsertRendezVousRequest,
+  InsertRendezVousRequestInput,
+} from "./schema";
 
 export const api = {
   projects: {
@@ -43,6 +54,17 @@ export const api = {
       input: insertContactMessageSchema.strict(),
       responses: {
         200: z.custom<typeof contactMessages.$inferSelect>(),
+        400: z.object({ message: z.string() }),
+      },
+    },
+  },
+  rendezVous: {
+    submit: {
+      method: "POST" as const,
+      path: "/api/rendez-vous",
+      input: insertRendezVousRequestSchema.strict(),
+      responses: {
+        200: z.custom<typeof rendezVousRequests.$inferSelect>(),
         400: z.object({ message: z.string() }),
       },
     },
