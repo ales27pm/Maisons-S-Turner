@@ -72,7 +72,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/projects"
+                  href="/realisations"
                   className="text-sm hover:text-accent transition-colors"
                 >
                   Our Portfolio

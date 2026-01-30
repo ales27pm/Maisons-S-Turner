@@ -139,7 +139,7 @@ export default function Home() {
               variants={fadeIn}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="/projects">
+              <Link href="/realisations">
                 <Button
                   size="lg"
                   className="bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8 py-6 shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -286,7 +286,7 @@ export default function Home() {
                 types.
               </p>
             </div>
-            <Link href="/projects">
+            <Link href="/realisations">
               <Button
                 variant="outline"
                 className="border-slate-700 text-slate-300 hover:bg-white hover:text-slate-900"

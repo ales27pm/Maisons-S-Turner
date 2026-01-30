@@ -6,7 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import Portfolio from "@/pages/Portfolio";
+import Realisations from "@/pages/Realisations";
+import RendezVous from "@/pages/RendezVous";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 function Router() {
@@ -15,10 +16,10 @@ function Router() {
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/projects" component={Portfolio} />
+        <Route path="/realisations" component={Realisations} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
-        <Route path="/rendez-vous" component={Contact} />
+        <Route path="/rendez-vous" component={RendezVous} />
         <Route component={NotFound} />
       </Switch>
     </>
