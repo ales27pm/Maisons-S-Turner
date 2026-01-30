@@ -24,13 +24,24 @@ export const contactMessages = pgTable("contact_messages", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   phone: text("phone"),
+  typeDemande: text("type_demande").notNull(),
+  typeMaison: text("type_maison").notNull(),
+  budget: text("budget").notNull(),
+  region: text("region").notNull(),
+  echeancier: text("echeancier").notNull(),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const insertProjectSchema = createInsertSchema(projects).omit({ id: true });
-export const insertServiceSchema = createInsertSchema(services).omit({ id: true });
-export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({ id: true, createdAt: true });
+export const insertProjectSchema = createInsertSchema(projects).omit({
+  id: true,
+});
+export const insertServiceSchema = createInsertSchema(services).omit({
+  id: true,
+});
+export const insertContactMessageSchema = createInsertSchema(
+  contactMessages,
+).omit({ id: true, createdAt: true });
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;

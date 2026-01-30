@@ -56,14 +56,15 @@ export function useContactForm() {
     },
     onSuccess: () => {
       toast({
-        title: "Message Sent",
-        description: "Thank you for contacting us. We will get back to you shortly.",
+        title: "Message envoyé",
+        description:
+          "Merci pour votre message. Nous vous répondrons rapidement.",
         variant: "default",
       });
     },
     onError: (error) => {
       toast({
-        title: "Error",
+        title: "Erreur",
         description: error.message,
         variant: "destructive",
       });
