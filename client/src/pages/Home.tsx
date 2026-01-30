@@ -49,23 +49,23 @@ export default function Home() {
     : [
         {
           id: 1,
-          title: "Custom Home Building",
+          title: "Construction de maisons sur mesure",
           description:
-            "From foundation to finish, we bring your dream home to life with precision engineering and expert craftsmanship.",
+            "De la fondation à la finition, nous donnons vie à votre maison de rêve grâce à une ingénierie précise et un savoir-faire d'experts.",
           icon: "Home",
         },
         {
           id: 2,
-          title: "Major Renovations",
+          title: "Rénovations majeures",
           description:
-            "Transform your existing space. We handle complex structural changes, additions, and complete home makeovers.",
+            "Transformez votre espace existant. Nous gérons les modifications structurelles complexes, les agrandissements et les rénovations complètes.",
           icon: "Hammer",
         },
         {
           id: 3,
-          title: "Project Management",
+          title: "Gestion de projet",
           description:
-            "Comprehensive oversight of your construction project, ensuring timelines, budgets, and quality standards are met.",
+            "Suivi complet de votre projet de construction afin de respecter les délais, les budgets et les standards de qualité.",
           icon: "Ruler",
         },
       ];
@@ -94,7 +94,7 @@ export default function Home() {
           {/* Unsplash image: Modern luxury home construction */}
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-            alt="Modern Home Construction"
+            alt="Construction de maison moderne"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
@@ -114,7 +114,7 @@ export default function Home() {
             >
               <span className="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse" />
               <span className="text-sm font-medium text-white tracking-wide uppercase">
-                Premier Construction Services
+                Services de construction haut de gamme
               </span>
             </motion.div>
 
@@ -122,17 +122,17 @@ export default function Home() {
               variants={fadeIn}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg"
             >
-              Building Your Vision, <br />
-              <span className="text-accent">Creating Your Home</span>
+              Construire votre vision, <br />
+              <span className="text-accent">créer votre maison</span>
             </motion.h1>
 
             <motion.p
               variants={fadeIn}
               className="text-lg sm:text-xl text-slate-200 mb-8 max-w-xl leading-relaxed drop-shadow-md"
             >
-              Maisons S. Turner combines architectural precision with master
-              craftsmanship to deliver renovation and construction projects that
-              stand the test of time.
+              Maisons S. Turner allie précision architecturale et savoir-faire
+              d'exception pour livrer des projets de rénovation et de
+              construction qui traversent le temps.
             </motion.p>
 
             <motion.div
@@ -144,7 +144,7 @@ export default function Home() {
                   size="lg"
                   className="bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8 py-6 shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  View Our Portfolio
+                  Voir nos réalisations
                 </Button>
               </Link>
               <Link href="/contact">
@@ -153,7 +153,7 @@ export default function Home() {
                   variant="outline"
                   className="border-2 border-white text-primary hover:bg-white hover:text-primary font-semibold text-lg px-8 py-6 shadow-lg bg-white/10 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300"
                 >
-                  Request a Quote
+                  Demander une soumission
                 </Button>
               </Link>
             </motion.div>
@@ -166,13 +166,13 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">
-              Our Expertise
+              Notre expertise
             </h2>
             <div className="h-1 w-20 bg-accent mx-auto mb-6" />
             <p className="text-muted-foreground text-lg">
-              We offer comprehensive construction services tailored to your
-              specific needs, maintaining the highest standards of quality and
-              safety.
+              Nous offrons des services de construction complets, adaptés à vos
+              besoins, tout en respectant les plus hautes normes de qualité et
+              de sécurité.
             </p>
           </div>
 
@@ -193,7 +193,7 @@ export default function Home() {
                 variant="ghost"
                 className="text-primary hover:text-accent group font-medium text-lg"
               >
-                View All Services{" "}
+                Voir tous les services{" "}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -214,7 +214,7 @@ export default function Home() {
                 {/* Unsplash image: Architect reviewing plans */}
                 <img
                   src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1931&auto=format&fit=crop"
-                  alt="Architectural Plans"
+                  alt="Plans architecturaux"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -228,7 +228,7 @@ export default function Home() {
                   <div>
                     <p className="text-3xl font-bold text-primary">15+</p>
                     <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide">
-                      Years of Excellence
+                      Années d'excellence
                     </p>
                   </div>
                 </div>
@@ -237,22 +237,22 @@ export default function Home() {
 
             <div className="order-1 lg:order-2">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-6">
-                Constructing With Integrity, <br />
-                <span className="text-accent">Delivering With Pride</span>
+                Construire avec intégrité, <br />
+                <span className="text-accent">livrer avec fierté</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                At Maisons S. Turner, we believe that a home is more than just
-                bricks and mortar—it's the foundation of your family's memories.
-                Our approach combines traditional craftsmanship with modern
-                building techniques.
+                Chez Maisons S. Turner, nous croyons qu'une maison est bien plus
+                que des briques et du mortier : c'est le socle des souvenirs de
+                votre famille. Notre approche combine le savoir-faire
+                traditionnel et les techniques de construction modernes.
               </p>
 
               <div className="space-y-4 mb-8">
                 {[
-                  "Licensed and Insured Professionals",
-                  "Transparent Pricing & Timelines",
-                  "Quality Materials & Superior Finish",
-                  "Dedicated Project Management",
+                  "Professionnels licenciés et assurés",
+                  "Tarification et échéanciers transparents",
+                  "Matériaux de qualité et finition supérieure",
+                  "Gestion de projet dédiée",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
@@ -263,7 +263,7 @@ export default function Home() {
 
               <Link href="/contact">
                 <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg px-8 h-12">
-                  Schedule a Consultation
+                  Planifier une consultation
                 </Button>
               </Link>
             </div>
@@ -277,13 +277,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-xl">
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Recent Projects
+                Projets récents
               </h2>
               <div className="h-1 w-20 bg-accent mb-6" />
               <p className="text-slate-400 text-lg">
-                Explore a selection of our recent work, showcasing our
-                versatility and commitment to quality across various project
-                types.
+                Découvrez une sélection de nos réalisations récentes, qui
+                illustrent notre polyvalence et notre engagement envers la
+                qualité pour divers types de projets.
               </p>
             </div>
             <Link href="/realisations">
@@ -291,7 +291,7 @@ export default function Home() {
                 variant="outline"
                 className="border-slate-700 text-slate-300 hover:bg-white hover:text-slate-900"
               >
-                View Full Portfolio
+                Voir toutes les réalisations
               </Button>
             </Link>
           </div>
@@ -319,19 +319,19 @@ export default function Home() {
                       <img
                         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        alt="Modern Villa"
+                        alt="Villa moderne"
                       />
                       <Badge className="absolute top-4 right-4 bg-accent">
-                        New Build
+                        Construction neuve
                       </Badge>
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-xl font-bold text-white mb-2">
-                        Lakeside Modern Villa
+                        Villa moderne au bord du lac
                       </h3>
                       <p className="text-slate-400 text-sm">
-                        A contemporary 4-bedroom home featuring floor-to-ceiling
-                        windows and sustainable materials.
+                        Maison contemporaine de 4 chambres avec des fenêtres
+                        pleine hauteur et des matériaux durables.
                       </p>
                     </div>
                   </div>
@@ -340,19 +340,19 @@ export default function Home() {
                       <img
                         src="https://pixabay.com/get/g1067e537db777ce1c0c21f3cfba578a2847b3fe0be2ddf9f28b768e1473eac8291a604e92f0ca42a9a8d62b5c634f2af57529350bbf56a0a07b75e495cee2854_1280.jpg"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        alt="Kitchen Reno"
+                        alt="Rénovation de cuisine"
                       />
                       <Badge className="absolute top-4 right-4 bg-accent">
-                        Renovation
+                        Rénovation
                       </Badge>
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-xl font-bold text-white mb-2">
-                        Heritage Kitchen Remodel
+                        Rénovation d'une cuisine patrimoniale
                       </h3>
                       <p className="text-slate-400 text-sm">
-                        Complete restoration of a 1920s kitchen, blending
-                        original charm with modern amenities.
+                        Restauration complète d'une cuisine des années 1920,
+                        alliant charme d'origine et commodités modernes.
                       </p>
                     </div>
                   </div>
@@ -361,7 +361,7 @@ export default function Home() {
                       <img
                         src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        alt="Office Space"
+                        alt="Espace de bureau"
                       />
                       <Badge className="absolute top-4 right-4 bg-accent">
                         Commercial
@@ -369,11 +369,11 @@ export default function Home() {
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-xl font-bold text-white mb-2">
-                        Downtown Office Fit-out
+                        Aménagement de bureaux au centre-ville
                       </h3>
                       <p className="text-slate-400 text-sm">
-                        Open-concept workspace design for a tech startup in the
-                        heart of the city.
+                        Aménagement d'un espace de travail à aire ouverte pour
+                        une startup technologique en plein cœur de la ville.
                       </p>
                     </div>
                   </div>
@@ -389,18 +389,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-primary/20 pattern-grid-lg opacity-20" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to Start Your Project?
+            Prêt à démarrer votre projet ?
           </h2>
           <p className="text-white/90 text-xl max-w-2xl mx-auto mb-10 font-medium">
-            Contact us today for a free consultation and quote. Let's build
-            something extraordinary together.
+            Contactez-nous dès aujourd'hui pour une consultation et une
+            soumission gratuites. Construisons quelque chose d'exceptionnel
+            ensemble.
           </p>
           <Link href="/contact">
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-slate-100 font-bold text-lg px-10 py-7 shadow-2xl"
             >
-              Get Your Free Quote
+              Obtenir votre soumission gratuite
             </Button>
           </Link>
         </div>
