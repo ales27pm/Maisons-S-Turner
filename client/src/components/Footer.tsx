@@ -40,8 +40,8 @@ export function Footer() {
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
-              Premium construction and renovation services tailored to your
-              unique vision. We build homes that last for generations.
+              Entrepreneur général spécialisé dans la construction et la
+              rénovation de maisons préfabriquées.
             </p>
             <div className="flex gap-4 pt-2">
               <a href="#" className="hover:text-accent transition-colors">
@@ -59,7 +59,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-6 text-accent">
-              Quick Links
+              Liens rapides
             </h4>
             <ul className="space-y-3">
               <li>
@@ -75,7 +75,7 @@ export function Footer() {
                   href="/realisations"
                   className="text-sm hover:text-accent transition-colors"
                 >
-                  Our Portfolio
+                  Nos réalisations
                 </Link>
               </li>
               <li>
@@ -91,7 +91,7 @@ export function Footer() {
                   href="/contact"
                   className="text-sm hover:text-accent transition-colors"
                 >
-                  Contact Us
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -121,7 +121,7 @@ export function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-6 text-accent">
-              Contact Us
+              Contact
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
